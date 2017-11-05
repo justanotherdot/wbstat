@@ -1,0 +1,247 @@
+	Thu Sep 29 18:11 2016 Time and Allocation Profiling Report  (Final)
+
+	   wbstat +RTS -N -P -RTS -a
+
+	total time  =       85.17 secs   (85166 ticks @ 1000 us, 1 processor)
+	total alloc = 59,968,496,944 bytes  (excludes profiling overheads)
+
+COST CENTRE          MODULE                     %time %alloc  ticks     bytes
+
+parseTimestamp.parse LogLine                     60.3   60.2  51364 36097603072
+parseLogLine.temp    LogLine                     11.1    9.5   9478 5693343024
+breakDelim           Data.List.Split.Internals    4.4   11.3   3774 6770245984
+main                 Main                         4.2   10.7   3563 6404144096
+fromElem             Data.List.Split.Internals    2.2    0.0   1895         0
+newEndCoord          Stats                        1.5    0.0   1283        88
+matchDelim           Data.List.Split.Internals    1.3    0.7   1124 416000000
+newBegCoord          Stats                        1.2    0.0   1012        16
+convertTemp          Units                        1.1    0.5    905 275595344
+splitInternal        Data.List.Split.Internals    0.9    1.4    751 816000000
+split                Data.List.Split.Internals    0.7    1.1    628 664000072
+
+
+                                                                                 individual      inherited
+COST CENTRE                         MODULE                    no.     entries  %time %alloc   %time %alloc  ticks     bytes
+
+MAIN                                MAIN                      286          0    0.6    0.0   100.0  100.0    520  28208912
+ main                               Main                      573          0    4.2   10.7    98.4  100.0   3563 6404144096
+  showStats                         Stats                     659          1    0.0    0.0     0.8    0.0      0     17672
+   showTotalDistance                Stats                     727          1    0.0    0.0     0.0    0.0      0      2432
+    showTotalDistance.total         Stats                     734          1    0.0    0.0     0.0    0.0      0        56
+     euclidDist                     Stats                     735          1    0.0    0.0     0.0    0.0      0        16
+      euclidDist.x                  Stats                     747          1    0.0    0.0     0.0    0.0      0        48
+      euclidDist.y                  Stats                     736          1    0.0    0.0     0.0    0.0      0        48
+    showTotalDistance.x1y1          Stats                     733          1    0.0    0.0     0.0    0.0      0         0
+    showTotalDistance.(...)         Stats                     731          1    0.0    0.0     0.0    0.0      0         0
+     endCoord                       Stats                     732          1    0.0    0.0     0.0    0.0      0         0
+    showTotalDistance.x0y0          Stats                     730          1    0.0    0.0     0.0    0.0      0         0
+    showTotalDistance.(...)         Stats                     728          1    0.0    0.0     0.0    0.0      0         0
+     begCoord                       Stats                     729          1    0.0    0.0     0.0    0.0      0         0
+   showObservations                 Stats                     716          1    0.8    0.0     0.8    0.0    687    246640
+    showObservations.showIt         Stats                     721        132    0.0    0.0     0.0    0.0      0    162928
+     showObservations.lookupObsvs   Stats                     722        132    0.0    0.0     0.0    0.0      0      2112
+      numObsvs                      Stats                     723        132    0.0    0.0     0.0    0.0      0         0
+    showObservations.obsvs          Stats                     717          1    0.0    0.0     0.0    0.0      0      7392
+     numObsvs                       Stats                     718          1    0.0    0.0     0.0    0.0      0         0
+   meanAvg                          Stats                     714          1    0.0    0.0     0.0    0.0      0        72
+   sumTemp                          Stats                     712          1    0.0    0.0     0.0    0.0      0         0
+   maxTemp                          Stats                     710          1    0.0    0.0     0.0    0.0      0         0
+   minTemp                          Stats                     708          1    0.0    0.0     0.0    0.0      0         0
+   numLines                         Stats                     660          2    0.0    0.0     0.0    0.0      0         0
+  iterateWhile'                     Main                      581          1    0.0    0.0    93.4   89.3      0         0
+   iterateWhile'.go                 Main                      582    1000001    0.3    0.1    93.4   89.3    281  80000080
+    runAnalyzeMode.go               Main                      584    1000000    0.1    0.1    93.1   89.1    120  80000000
+     runAnalyzeMode.go.process      Main                      585    1000000    0.2    0.2    93.0   89.0    207  96000000
+      runAnalyzeMode.go.process.\   Main                      658    1000000    0.0    0.0     0.0    0.0     41         0
+      analyseLogLine                Stats                     620    1000000    0.4    0.3     7.7    2.4    348 192000000
+       analyseLogLine.analyse       Stats                     668    1000000    0.6    0.4     4.8    0.9    538 232848288
+        newEndCoord                 Stats                     703    1000000    1.5    0.0     1.5    0.0   1283        88
+         newEndCoord.(...)          Stats                     705    1000000    0.0    0.0     0.0    0.0     18         0
+          endCoord                  Stats                     706    1000000    0.0    0.0     0.0    0.0      0         0
+         newEndCoord.oldTime        Stats                     704    1000000    0.0    0.0     0.0    0.0      0         0
+        newBegCoord                 Stats                     697    1000000    1.2    0.0     1.2    0.0   1012        16
+         newBegCoord.(...)          Stats                     699    1000000    0.0    0.0     0.0    0.0      8         0
+          begCoord                  Stats                     700    1000000    0.0    0.0     0.0    0.0      0         0
+         newBegCoord.oldTime        Stats                     698    1000000    0.0    0.0     0.0    0.0      0         0
+        incObsvCount                Stats                     694    1000000    0.0    0.0     0.6    0.5      5         0
+         incObsvCount.numObsvs'     Stats                     719    1000000    0.6    0.5     0.6    0.5    530 282764848
+          numObsvs                  Stats                     720    1000000    0.0    0.0     0.0    0.0      0         0
+        newSumTemp                  Stats                     690    1000000    0.5    0.0     0.5    0.0    397  15996272
+         sumTemp                    Stats                     713     999999    0.0    0.0     0.0    0.0      0         0
+         numLines                   Stats                     691    1000000    0.0    0.0     0.0    0.0      0         0
+        newMaxTemp                  Stats                     688    1000000    0.1    0.0     0.1    0.0     69         0
+         maxTemp                    Stats                     689    1000000    0.0    0.0     0.0    0.0      0         0
+        newMinTemp                  Stats                     671    1000000    0.2    0.0     0.2    0.0    142         0
+         minTemp                    Stats                     672    1000000    0.0    0.0     0.0    0.0      0         0
+        incNumLines                 Stats                     669    1000000    0.0    0.0     0.1    0.0     28         0
+         incNumLines.numLines'      Stats                     692    1000000    0.0    0.0     0.0    0.0     33  15999984
+          numLines                  Stats                     693    1000000    0.0    0.0     0.0    0.0      0         0
+       analyseLogLine.utcTime       Stats                     667    1000000    0.0    0.0     0.0    0.0      0         0
+       analyseLogLine.(...)         Stats                     661    1000000    0.0    0.0     0.0    0.0      0         0
+       normalizeLogLine             Stats                     657    1000000    0.2    0.4     2.5    1.1    146 224000336
+        normalizeLogLine.x'         Stats                     748          2    0.0    0.0     0.0    0.0      0         0
+        normalizeLogLine.distUnit   Stats                     743          2    0.0    0.0     0.0    0.0      0         0
+        normalizeLogLine.normDist   Stats                     740          0    0.0    0.0     0.0    0.0      0         0
+         /=                         Units                     741          2    0.0    0.0     0.0    0.0      0         0
+          ==                        Units                     742          2    0.0    0.0     0.0    0.0      0         0
+        normalizeLogLine.(...)      Stats                     738          2    0.0    0.0     0.0    0.0      0         0
+         normalizeLogLine.normDist  Stats                     739          4    0.0    0.0     0.0    0.0      0         0
+        normalizeLogLine.y'         Stats                     737          2    0.0    0.0     0.0    0.0      0         0
+        normalizeLogLine.temp'      Stats                     681    1000000    0.0    0.0     1.8    0.8     13         0
+         normalizeLogLine.normTemp  Stats                     682    1000000    0.6    0.3     1.8    0.8    495 159199760
+          normalizeLogLine.toDouble Stats                     684    1000000    0.1    0.0     0.1    0.0    114  16000000
+          convertTemp               Units                     683    1000000    1.1    0.5     1.1    0.5    905 275595344
+        normalizeLogLine.(...)      Stats                     674    1000000    0.0    0.0     0.4    0.0     41         0
+         observatory                Obsv                      675    1000000    0.3    0.0     0.3    0.0    276        16
+        normalizeLogLine.tempUnit   Stats                     673    1000000    0.1    0.0     0.1    0.0    120         0
+      parseLogLine                  LogLine                   586    1000000    0.2    0.3    85.0   86.5    186 152000000
+       parseLogLine.temp            LogLine                   685    1000000   11.1    9.5    11.1    9.5   9478 5693339832
+       parseLogLine.code            LogLine                   676    1000000    0.5    0.0     0.5    0.0    449         0
+       parseLogLine.timestamp       LogLine                   662    1000000    0.1    0.0    60.6   60.3     80  24000000
+        parseTimestamp              LogLine                   663    1000000    0.2    0.0    60.5   60.2    179  24000000
+         parseTimestamp.parse       LogLine                   664    1000000   60.3   60.2    60.3   60.2  51364 36097603072
+       parseLogLine.coord           LogLine                   621    1000000    0.1    0.0     2.6    4.3    118  24000016
+        parseCoordinate             LogLine                   623          0    0.1    0.0     2.5    4.3     53        16
+         parseCoordinate.readCoord  LogLine                   656    1000000    0.1    0.1     0.1    0.1     55  72026184
+         splitOn                    Data.List.Split.Internals 627          0    0.0    0.0     2.4    4.1      0         0
+          onSublist                 Data.List.Split.Internals 648          0    0.2    0.0     0.2    0.0    178         0
+          split                     Data.List.Split.Internals 628          0    0.2    0.3     2.1    4.1    130 208000000
+           fromElem                 Data.List.Split.Internals 746          4    0.0    0.0     0.0    0.0      0         0
+           splitInternal            Data.List.Split.Internals 639    2000000    0.2    0.4     1.5    3.3    204 248000000
+            breakDelim              Data.List.Split.Internals 641   12668911    1.0    2.7     1.3    2.9    833 1621674472
+             matchDelim             Data.List.Split.Internals 647   12668911    0.3    0.2     0.3    0.2    260 104000000
+           postProcess              Data.List.Split.Internals 630          0    0.2    0.1     0.5    0.5    130  40000000
+            dropFinal               Data.List.Split.Internals 654    1000000    0.0    0.0     0.0    0.0     18         0
+            dropInitial             Data.List.Split.Internals 652    1000000    0.0    0.0     0.0    0.0      6         0
+            doDrop                  Data.List.Split.Internals 651    1000000    0.1    0.2     0.1    0.2     76  96000000
+            insertBlanks            Data.List.Split.Internals 649    1000000    0.0    0.0     0.2    0.3     31         0
+             insertBlanks'          Data.List.Split.Internals 650    4000000    0.2    0.3     0.2    0.3    134 168000000
+            doCondense              Data.List.Split.Internals 637    1000000    0.0    0.0     0.0    0.0      3         0
+       parseLogLine.ps              LogLine                   587    1000000    0.0    0.0     9.9   12.2     17         0
+        splitOn                     Data.List.Split.Internals 588    1000000    0.1    0.0     9.9   12.2     66  16000016
+         onSublist                  Data.List.Split.Internals 593    1000000    0.6    0.0     0.6    0.0    521         0
+         split                      Data.List.Split.Internals 589    1000000    0.6    0.8     9.2   12.1    498 456000000
+          fromElem                  Data.List.Split.Internals 640    4000000    2.2    0.0     2.2    0.0   1895         0
+          delimiter                 Data.List.Split.Internals 603    1000000    0.0    0.0     0.0    0.0     27        16
+          splitInternal             Data.List.Split.Internals 601    4000000    0.6    0.9     5.1   10.1    547 568000000
+           breakDelim               Data.List.Split.Internals 602   37872181    3.5    8.6     4.5    9.1   2941 5148571512
+            matchDelim              Data.List.Split.Internals 610   39872181    1.0    0.5     1.0    0.5    864 312000000
+          postProcess               Data.List.Split.Internals 590    1000000    0.3    0.3     1.2    1.3    295 208000000
+           finalBlankPolicy         Data.List.Split.Internals 619    1000000    0.0    0.0     0.0    0.0     11         0
+           dropFinal                Data.List.Split.Internals 618    1000000    0.0    0.0     0.0    0.0     14         0
+           initBlankPolicy          Data.List.Split.Internals 617    1000000    0.0    0.0     0.0    0.0     26         0
+           dropInitial              Data.List.Split.Internals 616    1000000    0.0    0.0     0.0    0.0     21         0
+           doDrop                   Data.List.Split.Internals 615    1000000    0.2    0.3     0.2    0.3    189 192000000
+           insertBlanks             Data.List.Split.Internals 613    1000000    0.0    0.0     0.5    0.7     31         0
+            insertBlanks'           Data.List.Split.Internals 614    8000000    0.5    0.7     0.5    0.7    390 392000000
+           condensePolicy           Data.List.Split.Internals 600    1000000    0.0    0.0     0.0    0.0     28         0
+           doCondense               Data.List.Split.Internals 599    1000000    0.0    0.0     0.0    0.0     27         0
+           delimPolicy              Data.List.Split.Internals 592    1000000    0.0    0.0     0.0    0.0     23         0
+           doMerge                  Data.List.Split.Internals 591    1000000    0.0    0.0     0.0    0.0      7         0
+    runAnalyzeMode                  Main                      583          0    0.0    0.0     0.0    0.0     12         0
+  runAnalyzeMode                    Main                      580          1    0.0    0.0     0.0    0.0      0         0
+  parseArgs                         Main                      574          1    0.0    0.0     0.0    0.0      0        80
+ CAF:main1                          Main                      570          0    0.0    0.0     0.0    0.0      0        16
+  main                              Main                      572          1    0.0    0.0     0.0    0.0      0         0
+ CAF:lvl34_rbG4                     Main                      559          0    0.0    0.0     0.0    0.0      0         0
+  parseArgs                         Main                      579          0    0.0    0.0     0.0    0.0      0       160
+ CAF:lvl33_rbG3                     Main                      558          0    0.0    0.0     0.0    0.0      0         0
+  parseArgs                         Main                      578          0    0.0    0.0     0.0    0.0      0       160
+ CAF:lvl32_rbG2                     Main                      557          0    0.0    0.0     0.0    0.0      0         0
+  parseArgs                         Main                      577          0    0.0    0.0     0.0    0.0      0       160
+ CAF:lvl31_rbG1                     Main                      556          0    0.0    0.0     0.0    0.0      0         0
+  parseArgs                         Main                      576          0    0.0    0.0     0.0    0.0      0       160
+ CAF:lvl30_rbG0                     Main                      555          0    0.0    0.0     0.0    0.0      0         0
+  parseArgs                         Main                      575          0    0.0    0.0     0.0    0.0      0       160
+ CAF:lvl18_r8wc                     Stats                     539          0    0.0    0.0     0.8    0.0      0         0
+  showStats                         Stats                     707          0    0.8    0.0     0.8    0.0    713      1456
+ CAF:lvl17_r8wb                     Stats                     538          0    0.0    0.0     0.0    0.0      0         0
+  showStats                         Stats                     709          0    0.0    0.0     0.0    0.0      0      1672
+ CAF:lvl16_r8wa                     Stats                     537          0    0.0    0.0     0.0    0.0      0         0
+  showStats                         Stats                     711          0    0.0    0.0     0.0    0.0      0      1744
+ CAF:lvl15_r8w9                     Stats                     536          0    0.0    0.0     0.0    0.0      0         0
+  showStats                         Stats                     715          0    0.0    0.0     0.0    0.0      0      2032
+ CAF:lvl14_r8w8                     Stats                     535          0    0.0    0.0     0.0    0.0      0         0
+  showStats                         Stats                     724          0    0.0    0.0     0.0    0.0      0         0
+   showObservations                 Stats                     725          0    0.0    0.0     0.0    0.0      0         0
+    showObservations.showIt         Stats                     726          0    0.0    0.0     0.0    0.0      0      1600
+ CAF:lvl12_r8w6                     Stats                     534          0    0.0    0.0     0.0    0.0      0         0
+  showStats                         Stats                     749          0    0.0    0.0     0.0    0.0      0         0
+   showTotalDistance                Stats                     750          0    0.0    0.0     0.0    0.0      0       952
+ CAF:empty                          Stats                     522          0    0.0    0.0     0.0    0.0      0        64
+  empty                             Stats                     670          1    0.0    0.0     0.0    0.0      0         0
+ CAF:empty_initUTCTime              Stats                     521          0    0.0    0.0     0.0    0.0      0         0
+  empty                             Stats                     695          0    0.0    0.0     0.0    0.0      0        24
+   empty.initUTCTime                Stats                     696          1    0.0    0.0     0.0    0.0      0         0
+ CAF:empty4                         Stats                     520          0    0.0    0.0     0.0    0.0      0         0
+  empty                             Stats                     701          0    0.0    0.0     0.0    0.0      0         0
+   empty.initUTCTime                Stats                     702          0    0.0    0.0     0.0    0.0      0       344
+ CAF:parseLogLine3                  LogLine                   505          0    0.0    0.0     0.0    0.0      0         0
+  parseLogLine                      LogLine                   686          0    0.0    0.0     0.0    0.0      0         0
+   parseLogLine.temp                LogLine                   687          0    0.0    0.0     0.0    0.0      0      3192
+ CAF:parseLogLine14                 LogLine                   502          0    0.0    0.0     0.0    0.0      0         0
+  parseLogLine                      LogLine                   594          0    0.0    0.0     0.0    0.0      0         0
+   parseLogLine.ps                  LogLine                   595          0    0.0    0.0     0.0    0.0      0         0
+    splitOn                         Data.List.Split.Internals 596          0    0.0    0.0     0.0    0.0      0        64
+     dropDelims                     Data.List.Split.Internals 598          1    0.0    0.0     0.0    0.0      0         0
+ CAF:parseLogLine15                 LogLine                   501          0    0.0    0.0     0.0    0.0      0         0
+  parseLogLine                      LogLine                   604          0    0.0    0.0     0.0    0.0      0         0
+   parseLogLine.ps                  LogLine                   605          0    0.0    0.0     0.0    0.0      0         0
+    splitOn                         Data.List.Split.Internals 606          0    0.0    0.0     0.0    0.0      0         0
+     onSublist                      Data.List.Split.Internals 607          0    0.0    0.0     0.0    0.0      0       152
+ CAF:parseCoordinate                LogLine                   499          0    0.0    0.0     0.0    0.0      0        16
+  parseCoordinate                   LogLine                   622          1    0.0    0.0     0.0    0.0      0         0
+ CAF:parseLogLine6                  LogLine                   498          0    0.0    0.0     0.0    0.0      0         0
+  parseCoordinate                   LogLine                   744          0    0.0    0.0     0.0    0.0      0         0
+   parseCoordinate.readCoord        LogLine                   745          0    0.0    0.0     0.0    0.0      0      3192
+ CAF:timestampFormat                LogLine                   480          0    0.0    0.0     0.0    0.0      0         0
+  timestampFormat                   LogLine                   665          1    0.0    0.0     0.0    0.0      0       600
+ CAF:delayedLogLine2                LogLine                   479          0    0.0    0.0     0.0    0.0      0         0
+  timestampFormat                   LogLine                   666          0    0.0    0.0     0.0    0.0      0       376
+ CAF:parseLogLine8                  LogLine                   462          0    0.0    0.0     0.0    0.0      0         0
+  parseCoordinate                   LogLine                   624          0    0.0    0.0     0.0    0.0      0         0
+   splitOn                          Data.List.Split.Internals 625          1    0.0    0.0     0.0    0.0      0        32
+    onSublist                       Data.List.Split.Internals 633          1    0.0    0.0     0.0    0.0      0         0
+    split                           Data.List.Split.Internals 626          1    0.0    0.0     0.0    0.0      0        72
+     delimiter                      Data.List.Split.Internals 642          1    0.0    0.0     0.0    0.0      0        16
+     postProcess                    Data.List.Split.Internals 629          1    0.0    0.0     0.0    0.0      0       168
+      finalBlankPolicy              Data.List.Split.Internals 655          1    0.0    0.0     0.0    0.0      0         0
+      initBlankPolicy               Data.List.Split.Internals 653          1    0.0    0.0     0.0    0.0      0         0
+      condensePolicy                Data.List.Split.Internals 638          1    0.0    0.0     0.0    0.0      0         0
+      delimPolicy                   Data.List.Split.Internals 632          1    0.0    0.0     0.0    0.0      0         0
+      doMerge                       Data.List.Split.Internals 631          1    0.0    0.0     0.0    0.0      0         0
+ CAF:parseLogLine9                  LogLine                   461          0    0.0    0.0     0.0    0.0      0         0
+  parseCoordinate                   LogLine                   634          0    0.0    0.0     0.0    0.0      0         0
+   splitOn                          Data.List.Split.Internals 635          0    0.0    0.0     0.0    0.0      0        48
+    dropDelims                      Data.List.Split.Internals 636          1    0.0    0.0     0.0    0.0      0         0
+ CAF:parseLogLine10                 LogLine                   460          0    0.0    0.0     0.0    0.0      0         0
+  parseCoordinate                   LogLine                   643          0    0.0    0.0     0.0    0.0      0         0
+   splitOn                          Data.List.Split.Internals 644          0    0.0    0.0     0.0    0.0      0         0
+    onSublist                       Data.List.Split.Internals 645          0    0.0    0.0     0.0    0.0      0       136
+ CAF:parseLogLine11                 LogLine                   458          0    0.0    0.0     0.0    0.0      0         0
+  parseCoordinate                   LogLine                   646          0    0.0    0.0     0.0    0.0      0        88
+ CAF:parseLogLine16                 LogLine                   457          0    0.0    0.0     0.0    0.0      0         0
+  parseLogLine                      LogLine                   608          0    0.0    0.0     0.0    0.0      0         0
+   parseLogLine.ps                  LogLine                   609          0    0.0    0.0     0.0    0.0      0        88
+ CAF:observatories                  Obsv                      444          0    0.0    0.0     0.0    0.0      0         0
+  observatories                     Obsv                      677          1    0.0    0.0     0.0    0.0      0       432
+ CAF:knownObsvCodes6                Obsv                      443          0    0.0    0.0     0.0    0.0      0         0
+  observatories                     Obsv                      680          0    0.0    0.0     0.0    0.0      0       160
+ CAF:knownObsvCodes9                Obsv                      442          0    0.0    0.0     0.0    0.0      0         0
+  observatories                     Obsv                      679          0    0.0    0.0     0.0    0.0      0       160
+ CAF:knownObsvCodes12               Obsv                      441          0    0.0    0.0     0.0    0.0      0         0
+  observatories                     Obsv                      678          0    0.0    0.0     0.0    0.0      0       160
+ CAF                                Data.List.Split.Internals 440          0    0.0    0.0     0.0    0.0      0        48
+  defaultSplitter                   Data.List.Split.Internals 597          1    0.0    0.0     0.0    0.0      0         0
+ CAF                                Data.Time.Format.Parse    420          0    0.0    0.0     0.0    0.0      0      4624
+ CAF                                GHC.Conc.Signal           377          0    0.0    0.0     0.0    0.0      0       656
+ CAF                                GHC.IO.Encoding           359          0    0.0    0.0     0.0    0.0     11      3384
+ CAF                                GHC.IO.Encoding.Iconv     357          0    0.0    0.0     0.0    0.0      0       232
+ CAF                                GHC.IO.Exception          351          0    0.0    0.0     0.0    0.0      0       408
+ CAF                                GHC.IO.Handle.FD          348          0    0.0    0.0     0.0    0.0     27     51832
+ CAF                                GHC.IO.Handle.Internals   347          0    0.0    0.0     0.0    0.0      0       152
+ CAF                                GHC.IO.Handle.Text        346          0    0.0    0.0     0.0    0.0      0        88
+ CAF                                Text.Read.Lex             313          0    0.0    0.0     0.0    0.0     39      1616
+ CAF                                GHC.Event.KQueue          305          0    0.0    0.0     0.0    0.0      0        48
+ CAF                                GHC.Event.Poll            302          0    0.0    0.0     0.0    0.0      0        96
+ CAF                                GHC.Event.Thread          301          0    0.0    0.0     0.0    0.0     21      1232
